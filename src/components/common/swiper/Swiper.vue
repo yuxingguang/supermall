@@ -1,50 +1,50 @@
 <template>
-    <div id="hy-swiper">
-      <div class="swiper" @touchstart="touchstart" @touchmove="touchmove" @touchend="touchend">
-          <slot></slot>
-      </div>
-      <div id="indicator">
-        <div class="inner_indicator" v-for="item in slideCount" :class="{'active':currentIndex===item}"></div>
-      </div>
+  <div id="hy-swiper">
+    <div class="swiper" @touchstart="touchstart" @touchmove="touchmove" @touchend="touchend">
+      <slot></slot>
     </div>
+    <div id="indicator">
+      <div class="inner_indicator" v-for="item in slideCount" :class="{'active':currentIndex===item}"></div>
+    </div>
+  </div>
 </template>
 
 <script>
-	export default {
-		name: "Swiper",
+  export default {
+    name: "Swiper",
     data(){
-		  return{
-		    slideCount:0,
+      return{
+        slideCount:0,
         currentIndex:1,
         totalWidth:0,
-		    swiperStyle:{},
+        swiperStyle:{},
         index:0,
         timerkey:null,
       }
     },
     props:{
-		  animation:{
-		    type:Number,
+      animation:{
+        type:Number,
         default:700
       },
       interval:{
-		    type:Number,
+        type:Number,
         default:4000
       },
       judgeRatio:{
-		    type:Number,
+        type:Number,
         default:0.25
       }
     },
     mounted() {
-		  //添加DOM和获取样式
+      //添加DOM和获取样式
       window.setTimeout(()=>{
         this.handleDom();
         this.startTimer();
       },300)
     },
     methods:{
-		  //获取DOM方法
+      //获取DOM方法
       handleDom(){
         let swiper = document.querySelector('.swiper');//静态Nodelist
         let slides = swiper.getElementsByClassName('slide'); //这个是动态nodelist
@@ -133,7 +133,7 @@
   }
   .swiper{
     display: flex;
-  /*width: 100%;*/
+    /*width: 100%;*/
   }
   #indicator{
     display: flex;
@@ -148,7 +148,6 @@
     height: 8px;
     border-radius: 4px;
     background-color: #fff;
-
     box-sizing: border-box;
     line-height: 8px;
     text-align: center;

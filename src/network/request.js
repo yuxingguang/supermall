@@ -4,7 +4,7 @@ export function request(config) {
   // 1.创建axios实例
   const instance = axios.create({
     //baseUrl会自动加在url前面，不过若其是URI就不会加
-    baseURL:'http://152.136.185.210:8000/api/h8',
+    baseURL:'http://152.136.185.210:8000/api/n3',
     timeout:5000
   });
 
